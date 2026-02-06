@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Papa</title>
+
+<style>
+body{
+    margin:0;
+    background:#0f172a;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+/* START */
+.start{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#facc15;
+    cursor:pointer;
+}
+
+button:hover{background:#fde047;}
+
+/* SECTION */
+.section{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:1.5s;
+}
+
+.show{
+    opacity:1;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:35px;
+    border-radius:15px;
+    width:80%;
+    max-width:600px;
+    text-align:center;
+    position:relative;
+}
+
+/* ENVELOPE */
+.envelope{
+    font-size:80px;
+    cursor:pointer;
+}
+
+.text{
+    display:none;
+    margin-top:20px;
+    font-size:20px;
+}
+
+/* IMAGE */
+.corner-img{
+    position:absolute;
+    top:-20px;
+    right:-20px;
+    width:80px;
+    transform:rotate(-15deg);
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<div class="start" id="start">
+    <h1>Untuk Papa ❤️</h1>
+    <button onclick="start()">Mulai</button>
+</div>
+
+<!-- LETTER 1 -->
+<div class="section" id="a">
+    <div class="card">
+        <div class="envelope" onclick="openText(1)">✉️</div>
+        <div class="text" id="t1">Papa adalah pahlawan terhebat dalam hidupku.</div>
+    </div>
+</div>
+
+<!-- LETTER 2 -->
+<div class="section" id="b">
+    <div class="card">
+        <div class="envelope" onclick="openText(2)">✉️</div>
+        <div class="text" id="t2">Terima kasih Papa atas setiap pengorbananmu.</div>
+    </div>
+</div>
+
+<!-- LETTER 3 -->
+<div class="section" id="c">
+    <div class="card">
+        <div class="envelope" onclick="openText(3)">✉️</div>
+        <div class="text" id="t3">Aku bangga menjadi anak Papa.</div>
+    </div>
+</div>
+
+<!-- FINAL -->
+<div class="section" id="d">
+    <div class="card">
+
+        <!-- GANTI GAMBAR DI SINI -->
+        <img src="foto_papa.jpg" class="corner-img">
+
+        <h2>Selamat Ulang Tahun, Papa</h2>
+
+        <p>
+        Papa, di hari istimewa ini aku ingin mengucapkan terima kasih atas semua
+        yang telah Papa lakukan. Papa adalah sosok yang kuat, berani, dan penuh
+        tanggung jawab. Di medan petempuran Papa adalah seorang pejuang, dan di rumah Papa
+        adalah pelindung keluarga kami.
+        </p>
+
+        <p>
+        Terima kasih atas setiap lelah yang Papa sembunyikan, atas setiap doa
+        yang Papa panjatkan, dan atas cinta yang selalu Papa berikan tanpa syarat.
+        </p>
+
+        <p>
+        Semoga Papa selalu diberi kesehatan, kekuatan, dan kebahagiaan.
+        Kami bangga memiliki Papa. Kami sangat mencintaimu.
+        </p>
+
+
+        <!-- TANDA TANGAN -->
+        <p style="text-align:center; margin-top:20px; font-style:italic; color:#cccccc;">
+            -Arya Prasetya-
+        </p>
+
+    </div>
+</div>
+
+<script>
+function start(){
+    document.getElementById("start").style.display="none";
+
+    let sections=["a","b","c","d"];
+    let delay=0;
+
+    sections.forEach(id=>{
+        setTimeout(()=>{
+            let el=document.getElementById(id);
+            el.classList.add("show");
+            el.scrollIntoView({behavior:"smooth"});
+        },delay);
+        delay+=3000;
+    });
+}
+
+function openText(n){
+    document.getElementById("t"+n).style.display="block";
+}
+</script>
+
+</body>
+</html>
